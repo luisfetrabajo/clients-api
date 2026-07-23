@@ -1,6 +1,6 @@
 import { connectDB } from "../config/db.js";
 import Client from "../models/Client.js";
-import Clients from "../models/Client.js";
+//import Clients from "../models/Client.js";
 
 export const getClients = async (Req, res) => {
   const clients = await Client.find();
@@ -14,13 +14,13 @@ export const createClient = async (req, res) => {
 };
 
 export const updateClient = async (req, res) => {
-  const client = await Client.findByIdAndUpdate(req.params.id, req.body, {
+  const client = await Client.findByIdAndUpdate(req.params._id, req.body, {
     new: true,
   });
   res.json(client);
 };
 
 export const deleteClient = async (req, res) => {
-  await Client.findByIdAndDelete(req.params.id);
+  await Client.findByIdAndDelete(req.params._id);
   res.sendStatus(204);
 };

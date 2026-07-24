@@ -4,7 +4,9 @@ import { authMiddleware } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 router.get("/", controller.getClients);
+router.get("/:id", controller.getClient);
 router.post("/new", authMiddleware, controller.createClient);
+//router.post("/newUser",  controller.createUsers);
 router.put("/update/:_id", authMiddleware, controller.updateClient);
 router.delete("/delete/:_id", authMiddleware, controller.deleteClient);
 export default router;
